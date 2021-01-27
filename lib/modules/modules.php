@@ -1,5 +1,5 @@
 <?php
-	namespace sv_plugin_boilerplate;
+	namespace sv_tracking_manager_extended;
 	
 	class modules extends init {
 		public function __construct() {
@@ -7,6 +7,8 @@
 		}
 		
 		public function init() {
-			$this->common->init();
+			$this->usercentrics->init();
+
+			$this->freemius->init();
 		}
 	}

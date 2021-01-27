@@ -1,9 +1,8 @@
 <div class="sv_setting_subpage">
-	<h2><?php _e('Common', 'sv_plugin_boilerplate'); ?></h2>
-    <h3><?php _e('My Setting', 'sv_plugin_boilerplate'); ?></h3>
+	<h2><?php _e('Usercentrics', 'sv_tracking_manager_extended'); ?></h2>
     <div class="sv_setting_flex">
 		<?php
-		echo $module->get_setting( 'my_setting' )->form();
+		echo $module->get_setting( 'local_cache' )->form();
 		?>
     </div>
 </div>
