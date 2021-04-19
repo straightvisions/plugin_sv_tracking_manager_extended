@@ -12,7 +12,8 @@
 				->load_settings()
 				->get_root()->add_section( $this );
 
-			add_action('plugins_loaded', array($this, 'run'));
+			add_action('plugins_loaded', array($this, 'local_cache'));
+			add_action('plugins_loaded', array($this, 'sdp_block_only'));
 		}
 		
 		protected function load_settings(): usercentrics{
@@ -20,11 +21,53 @@
 				->set_title( __( 'Activate Local Cache', 'sv_tracking_manager_extended' ) )
 				->set_description( __( 'External Files will be cached and updated every 24 hours where possible', 'sv_tracking_manager_extended' ) )
 				->load_type( 'checkbox' );
+
+			$this->get_setting( 'sdp_block_only' )
+				->set_title( __( 'Beta: Smart Data Protector Block Only', 'sv_tracking_manager_extended' ) )
+				->set_description( __( 'Smart Data Protector will try to load only those codeparts which are needed to block the Services added here. Add the Service Template IDs, like BJz7qNsdj-7 for Youtube or HkocEodjb7 for Google Analytics as shown in Usercentrics Dashboard.', 'sv_tracking_manager_extended' ) )
+				->load_type( 'group' );
+
+			$this->get_setting('sdp_block_only')->run_type()->add_child()
+				->set_ID('entry_label')
+				->set_title(__('Entry Label', 'sv_tracking_manager_extended'))
+				->set_description(__('This Label will be used as Entry Title for this Settings Group.', 'sv_tracking_manager_extended'))
+				->load_type('text')
+				->set_placeholder('Entry #...');
+
+			$this->get_setting('sdp_block_only')->run_type()->add_child()
+				->set_ID('id')
+				->set_title(__('ID', 'sv_tracking_manager_extended'))
+				->set_description(__('Service Template ID from Usercentrics', 'sv_tracking_manager_extended'))
+				->load_type('text');
 				
 			return $this;
 		}
+
+		public function sdp_block_only(): usercentrics {
+			if(!$this->get_setting( 'sdp_block_only' )->get_data()){
+				return $this;
+			}
+
+			if(!$this->is_instance_active('sv_tracking_manager')){
+				return $this;
+			}
+
+			$services	= array();
+			foreach($this->get_setting( 'sdp_block_only' )->get_data() as $service){
+				$services[]		= $service['id'];
+			}
+
+			$this->get_script('sdp_block_only')
+				->set_deps(array('jquery'))
+				->set_path('lib/frontend/js/sdp_block_only.js')
+				->set_type('js')
+				->set_is_enqueued()
+				->set_localized($services);
+
+			return $this;
+		}
 		
-		public function run(): usercentrics {
+		public function local_cache(): usercentrics {
 			if(!$this->get_setting( 'local_cache' )->get_data()){
 				return $this;
 			}
