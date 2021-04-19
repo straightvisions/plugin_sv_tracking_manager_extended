@@ -4,8 +4,8 @@ Donate link: https://straightvisions.com
 Tags: tracking, analytics, gdpr, dsgvo, usercentrics, cookie banner, bing, facebook, google analytics, google optimize, hotjar, linkedin, mouseflow, yahoo
 Requires PHP: 7.3
 Requires at least: 5.3.2
-Tested up to: 5.5.3
-Stable tag: 1.5.00
+Tested up to: 5.7.1
+Stable tag: 1.6.00
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -35,13 +35,16 @@ This plugin is build to work out-of-the-box. Installation is quite simple.
 
 == Changelog ==
 
+= 1.6.00 =
+* Update Core
+
 = 1.5.00 =
 Initial Release
 
 == Upgrade Notice ==
 
-= 1.5.00 =
-Initial Release
+= 1.6.00 =
+* Update Core
 
 == Missing a feature? ==
 
