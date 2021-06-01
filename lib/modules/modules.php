@@ -7,8 +7,8 @@
 		}
 		
 		public function init() {
-			$this->usercentrics->init();
-
-			$this->freemius->init();
+			$this->load_module('usercentrics');
+			$this->load_module('plausible');
+			$this->load_module('freemius');
 		}
 	}
