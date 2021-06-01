@@ -37,7 +37,31 @@
 
 			$script->set_path($this->cache_file($script->get_url()));
 
+			// catch API Events
+			$this->api_events();
+
 			return $this;
+		}
+		private function api_events() {
+			if($_SERVER['REQUEST_URI'] === '/api/event'){
+				$body		= file_get_contents('php://input');
+				if(json_decode($body)){
+					http_response_code ( 202 );
+
+					$remote_get		= static::$remote_get
+						->create( $this )
+						->set_request_url( 'https://plausible.io/api/event' )
+						->set_args(array(
+							'headers'		=> array('Content-Type' => 'application/json; charset=utf-8'),
+							'data_format'	=> 'body',
+							'method'		=> 'POST',
+							'body'			=> $body
+						));
+
+					echo wp_remote_retrieve_body($remote_get->get_response(true));
+					die();
+				}
+			}
 		}
 		public function cache_file(string $url): string{
 			$hash = md5($url);
