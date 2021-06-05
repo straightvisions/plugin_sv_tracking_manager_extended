@@ -52,7 +52,10 @@
 						->create( $this )
 						->set_request_url( 'https://plausible.io/api/event' )
 						->set_args(array(
-							'headers'		=> array('Content-Type' => 'application/json; charset=utf-8'),
+							'headers'		=> array(
+								'Content-Type' => 'application/json; charset=utf-8',
+								'User-Agent'	=> $_SERVER['HTTP_USER_AGENT']
+							),
 							'data_format'	=> 'body',
 							'method'		=> 'POST',
 							'body'			=> $body
