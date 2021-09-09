@@ -12,6 +12,8 @@
 				->load_settings()
 				->get_root()->add_section( $this );
 
+			add_action('wp', array($this, 'bypass_usercentrics'));
+
 			add_action('init', array($this, 'local_cache'), 999);
 		}
 		
@@ -20,10 +22,33 @@
 				->set_title( __( 'Activate Local Proxy', 'sv_tracking_manager_extended' ) )
 				->set_description( __( 'Communication with Plausible is tunneled by server proxy. External Files will be cached and updated every 24 hours where possible.', 'sv_tracking_manager_extended' ) )
 				->load_type( 'checkbox' );
+
+			$this->get_setting( 'bypass_usercentrics' )
+				->set_title( __( 'Bypass Usercentrics', 'sv_tracking_manager_extended' ) )
+				->set_description( __( 'Plausible will not wait for permission by Usercentrics', 'sv_tracking_manager_extended' ) )
+				->load_type( 'checkbox' );
 				
 			return $this;
 		}
+		public function bypass_usercentrics(): plausible{
+			if(!$this->get_setting( 'bypass_usercentrics' )->get_data()){
+				return $this;
+			}
 
+			if(!$this->is_instance_active('sv_tracking_manager')){
+				return $this;
+			}
+
+			$this->get_instance('sv_tracking_manager')->get_module('usercentrics')->remove_consent_ID('sv_tracking_manager_plausible_scripts_default');
+
+			add_filter('sv_tracking_manager_no_consent_required', function(array $filter){
+				$filter	= array_merge($filter, array($this->get_instance('sv_tracking_manager')->get_module('plausible')->get_script('default')->get_handle()));
+
+				return $filter;
+			});
+
+			return $this;
+		}
 		public function local_cache(): plausible {
 			if(!$this->get_setting( 'local_cache' )->get_data()){
 				return $this;
