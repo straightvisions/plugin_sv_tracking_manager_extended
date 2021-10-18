@@ -14,6 +14,15 @@
 
 			add_action('plugins_loaded', array($this, 'local_cache'));
 			add_action('plugins_loaded', array($this, 'sdp_block_only'));
+
+			// Shortcode-Tag: sv_tracking_manager_extended_usercentrics_privacy_settings_link
+			add_shortcode( $this->get_prefix('privacy_settings_link'), function($atts){
+				$atts = shortcode_atts( array(
+					'title' => __('Privacy Settings', 'sv_tracking_manager_extended')
+				), $atts, 'sv_tracking_manager_extended_usercentrics_privacy_settings_link' );
+
+				return '<a href="#" onClick="UC_UI.showSecondLayer();">'.$atts['title'].'</a>';
+			});
 		}
 		
 		protected function load_settings(): usercentrics{
