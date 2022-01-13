@@ -1,17 +1,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: SV Tracking Manager Extended\n"
-"POT-Creation-Date: 2021-10-19 15:14+0200\n"
-"PO-Revision-Date: 2021-10-19 15:15+0200\n"
+"POT-Creation-Date: 2022-01-13 18:55+0100\n"
+"PO-Revision-Date: 2022-01-13 18:56+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0\n"
-"X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: sv_tracking_manager_extended.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -61,26 +61,26 @@ msgstr "Hilfreiche Tools &amp; Helfer"
 msgid "Common"
 msgstr "Allgemein"
 
-#: lib/core_plugin/core/abstract.php:709
+#: lib/core_plugin/core/abstract.php:706
 msgid "No Title defined."
 msgstr "Kein Titel definiert."
 
-#: lib/core_plugin/core/abstract.php:729
+#: lib/core_plugin/core/abstract.php:726
 msgid "No description defined."
 msgstr "Keine Beschreibung definiert."
 
-#: lib/core_plugin/core/abstract.php:739
+#: lib/core_plugin/core/abstract.php:736
 msgid "No privacy statement defined."
 msgstr "Keine Datenschutzerklärung definiert."
 
-#: lib/core_plugin/core/abstract.php:816
-#: lib/core_plugin/core/scripts/scripts.php:118
+#: lib/core_plugin/core/abstract.php:813
+#: lib/core_plugin/core/scripts/scripts.php:122
 msgid "Settings"
 msgstr "Einstellungen"
 
 #: lib/core_plugin/core/abstract_template_sv_archive.php:29
 #: lib/core_plugin/core/abstract_template_sv_content.php:29
-#: lib/core_plugin/core/settings/modules/setting_group/setting_group.php:72
+#: lib/core_plugin/core/settings/modules/setting_group/setting_group.php:64
 msgid "Entry"
 msgstr "Eintrag"
 
@@ -416,8 +416,8 @@ msgid "Active"
 msgstr "Aktiv"
 
 #: lib/core_plugin/core/info/backend/tpl/about.php:114
-#: lib/core_plugin/core/scripts/scripts.php:227
-#: lib/core_plugin/core/scripts/scripts.php:237
+#: lib/core_plugin/core/scripts/scripts.php:231
+#: lib/core_plugin/core/scripts/scripts.php:241
 msgid "Disabled"
 msgstr "Deaktiviert"
 
@@ -453,27 +453,27 @@ msgstr "Skripte"
 msgid "Override Scripts Loading."
 msgstr "Ladeeinstellungen der Scripte überschreiben."
 
-#: lib/core_plugin/core/scripts/scripts.php:109
+#: lib/core_plugin/core/scripts/scripts.php:113
 msgid "SV100"
 msgstr "SV100"
 
-#: lib/core_plugin/core/scripts/scripts.php:130
+#: lib/core_plugin/core/scripts/scripts.php:134
 msgid "Clear Cache"
 msgstr "Cache leeren"
 
-#: lib/core_plugin/core/scripts/scripts.php:191
+#: lib/core_plugin/core/scripts/scripts.php:195
 msgid "Flush cache for all CSS files"
 msgstr "Leere Cache für alle CSS Dateien"
 
-#: lib/core_plugin/core/scripts/scripts.php:192
+#: lib/core_plugin/core/scripts/scripts.php:196
 msgid "All cached CSS Files will be regenerated"
 msgstr "Alle gecachten CSS Dateien werden neu generiert"
 
-#: lib/core_plugin/core/scripts/scripts.php:197
+#: lib/core_plugin/core/scripts/scripts.php:201
 msgid "Disable all CSS per Default"
 msgstr "Alle CSS per Standard abschalten"
 
-#: lib/core_plugin/core/scripts/scripts.php:198
+#: lib/core_plugin/core/scripts/scripts.php:202
 msgid ""
 "CSS enqueued will be disabled by default - you may override this later down "
 "below."
@@ -481,11 +481,11 @@ msgstr ""
 "CSS-Anmeldeformular wird standardmäßig deaktiviert - Du kannst dies später "
 "weiter unten überschreiben."
 
-#: lib/core_plugin/core/scripts/scripts.php:203
+#: lib/core_plugin/core/scripts/scripts.php:207
 msgid "Disable all JS per Default"
 msgstr "Alle JS per Standard abschalten"
 
-#: lib/core_plugin/core/scripts/scripts.php:204
+#: lib/core_plugin/core/scripts/scripts.php:208
 msgid ""
 "JS enqueued will be disabled by default - you may override this later down "
 "below."
@@ -493,39 +493,39 @@ msgstr ""
 "JS Einreihung wird standardmäßig deaktiviert. Du kannst dies später weiter "
 "unten überschreiben."
 
-#: lib/core_plugin/core/scripts/scripts.php:229
-#: lib/core_plugin/core/scripts/scripts.php:235
+#: lib/core_plugin/core/scripts/scripts.php:233
+#: lib/core_plugin/core/scripts/scripts.php:239
 msgid "Inline"
 msgstr "Inline"
 
-#: lib/core_plugin/core/scripts/scripts.php:229
-#: lib/core_plugin/core/scripts/scripts.php:236
+#: lib/core_plugin/core/scripts/scripts.php:233
+#: lib/core_plugin/core/scripts/scripts.php:240
 msgid "Attached"
 msgstr "Angehängt"
 
-#: lib/core_plugin/core/scripts/scripts.php:234
+#: lib/core_plugin/core/scripts/scripts.php:238
 msgid "Default"
 msgstr "Standard"
 
-#: lib/core_plugin/core/scripts/scripts.php:254
-#: lib/core_plugin/core/scripts/scripts.php:264
+#: lib/core_plugin/core/scripts/scripts.php:258
+#: lib/core_plugin/core/scripts/scripts.php:268
 msgid "Flush Cache"
 msgstr "Cache leeren"
 
-#: lib/core_plugin/core/scripts/scripts.php:255
-#: lib/core_plugin/core/scripts/scripts.php:265
+#: lib/core_plugin/core/scripts/scripts.php:259
+#: lib/core_plugin/core/scripts/scripts.php:269
 msgid "Cache Active"
 msgstr "Cache Aktiv"
 
-#: lib/core_plugin/core/scripts/scripts.php:519
+#: lib/core_plugin/core/scripts/scripts.php:523
 msgid "Script \""
 msgstr "Skript \""
 
-#: lib/core_plugin/core/settings/modules/setting_group/setting_group.php:59
+#: lib/core_plugin/core/settings/modules/setting_group/setting_group.php:51
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: lib/core_plugin/core/settings/modules/setting_group/setting_group.php:72
+#: lib/core_plugin/core/settings/modules/setting_group/setting_group.php:64
 msgid "Group #"
 msgstr "Gruppe #"
 
@@ -671,7 +671,7 @@ msgstr "Du musst unser SV Core Plugin installieren und aktivieren"
 
 #: lib/modules/google_optimize/google_optimize.php:17
 msgid "Google Optimize"
-msgstr "Google Optimieren"
+msgstr "Google Optimize"
 
 #: lib/modules/google_optimize/google_optimize.php:36
 msgid "Activate"
@@ -715,14 +715,33 @@ msgstr "Aktivieren"
 msgid "Enable Optimize on this page."
 msgstr "Aktivieren Sie auf dieser Seite Optimize."
 
-#: lib/modules/plausible/plausible.php:10
-msgid "Plausible"
-msgstr "Plausible"
+#: lib/modules/hubspot/hubspot.php:10
+msgid "Hubspot"
+msgstr "Hubspot"
 
-#: lib/modules/plausible/plausible.php:11
+#: lib/modules/hubspot/hubspot.php:11 lib/modules/plausible/plausible.php:11
 #: lib/modules/usercentrics/usercentrics.php:11
 msgid "Extended"
 msgstr "Erweitert"
+
+#: lib/modules/hubspot/hubspot.php:20
+msgid "Disable Plugin Loader"
+msgstr "Plugin Loader deaktivieren"
+
+#: lib/modules/hubspot/hubspot.php:21
+msgid ""
+"Disable Loading Hubspot Pixel via official Hubspot Plugin. This prevents "
+"doubled Script loading and respects Usercentrics CMP. You should disable "
+"Hubspot Cookie Consent Feature if loading is controlled by Usercentrics CMP."
+msgstr ""
+"Deaktivieren Sie das Laden von Hubspot Pixel über das offizielle Hubspot "
+"Plugin. Dies verhindert das doppelte Laden von Skripts und respektiert "
+"Usercentrics CMP. Sie sollten die Hubspot-Cookie-Zustimmungsfunktion "
+"deaktivieren, wenn das Laden von Usercentrics CMP gesteuert wird."
+
+#: lib/modules/plausible/plausible.php:10
+msgid "Plausible"
+msgstr "Plausible"
 
 #: lib/modules/plausible/plausible.php:22
 msgid "Activate Local Proxy"
@@ -736,6 +755,14 @@ msgstr ""
 "Die Kommunikation mit Plausible wird über den Server-Proxy getunnelt. "
 "Externe Dateien werden nach Möglichkeit alle 24 Stunden zwischengespeichert "
 "und aktualisiert."
+
+#: lib/modules/product_recommendation_quiz/product_recommendation_quiz.php:10
+msgid "Product Recommendation Quiz"
+msgstr "Product Recommendation Quiz"
+
+#: lib/modules/product_recommendation_quiz/product_recommendation_quiz.php:20
+msgid "Enable Javascript Loading Opt In via Usercentrics"
+msgstr "Aktivieren Sie Javascript Loading Opt In über Usercentrics"
 
 #: lib/modules/usercentrics/usercentrics.php:21
 msgid "Privacy Settings"
