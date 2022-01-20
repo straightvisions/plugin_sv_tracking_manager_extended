@@ -75,8 +75,8 @@
 
 					$headers				= array(
 						'Content-Type'		=> 'application/json; charset=utf-8',
-						'User-Agent'		=> getallheaders()['User-Agent'],
-						'X-Forwarded-For'	=> getallheaders()['X-Forwarded-For'],
+						'User-Agent'		=> isset(getallheaders()['User-Agent']) ? getallheaders()['User-Agent'] : '',
+						'X-Forwarded-For'	=> isset(getallheaders()['X-Forwarded-For']) ? getallheaders()['X-Forwarded-For'] : '',
 					);
 
 					$remote_get		= static::$remote_get
