@@ -5,7 +5,7 @@ Tags: tracking, analytics, gdpr, dsgvo, usercentrics, cookie banner, bing, faceb
 Requires PHP: 7.3
 Requires at least: 5.3.2
 Tested up to: 5.9.0
-Stable tag: 1.8.01
+Stable tag: 1.8.02
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -35,6 +35,13 @@ This plugin is build to work out-of-the-box. Installation is quite simple.
 
 == Changelog ==
 
+= 1.8.02 =
+### Feature Added
+* Open Usercentrics Settings via click on elements with ID #sv_tracking_manager_extended_usercentrics_open_settings
+
+### Feature Removed
+* Open Usercentrics Settings via Shortcode
+
 = 1.8.01 =
 ### Feature Added
 
@@ -54,11 +61,12 @@ Initial Release
 
 == Upgrade Notice ==
 
-= 1.8.01 =
+= 1.8.02 =
 ### Feature Added
+* Open Usercentrics Settings via click on elements with ID #sv_tracking_manager_extended_usercentrics_open_settings
 
-* Avoid double loaded Hubspot Pixels by disabling Hubspot Pixel from Hubspot plugin
-* Outbrain Conversion Tracking Support
+### Feature Removed
+* Open Usercentrics Settings via Shortcode
 
 == Missing a feature? ==
 

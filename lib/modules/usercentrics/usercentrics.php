@@ -2,27 +2,32 @@
 	namespace sv_tracking_manager_extended;
 	
 	class usercentrics extends modules {
-		public function __construct() {
-		
-		}
-		
 		public function init() {
 			$this->set_section_title( __( 'Usercentrics', 'sv_tracking_manager_extended' ) )
 				->set_section_desc( __( 'Extended', 'sv_tracking_manager_extended' ) )
 				->load_settings()
 				->get_root()->add_section( $this );
 
+			add_action('init', array($this, 'settings_toggle'));
 			add_action('plugins_loaded', array($this, 'local_cache'));
 			add_action('plugins_loaded', array($this, 'sdp_block_only'));
+		}
 
-			// Shortcode-Tag: sv_tracking_manager_extended_usercentrics_privacy_settings_link
-			add_shortcode( $this->get_prefix('privacy_settings_link'), function($atts){
-				$atts = shortcode_atts( array(
-					'title' => __('Privacy Settings', 'sv_tracking_manager_extended')
-				), $atts, 'sv_tracking_manager_extended_usercentrics_privacy_settings_link' );
+		public function settings_toggle(): usercentrics{
+			if(!$this->is_instance_active('sv_tracking_manager')){
+				return $this;
+			}
 
-				return '<a href="#" onClick="UC_UI.showSecondLayer();">'.$atts['title'].'</a>';
-			});
+			if(!$this->get_instance('sv_tracking_manager')->get_module('usercentrics')->is_active()){
+				return $this;
+			}
+
+			$this->get_script('default')
+				->set_path('lib/js/frontend/default.js')
+				->set_type('js')
+				->set_is_enqueued();
+
+			return $this;
 		}
 		
 		protected function load_settings(): usercentrics{
