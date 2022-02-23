@@ -38,6 +38,7 @@ This plugin is build to work out-of-the-box. Installation is quite simple.
 = 1.8.02 =
 ### Feature Added
 * Open Usercentrics Settings via click on elements with ID #sv_tracking_manager_extended_usercentrics_open_settings
+* Hubspot Meetings Support
 
 ### Feature Removed
 * Open Usercentrics Settings via Shortcode
@@ -64,6 +65,7 @@ Initial Release
 = 1.8.02 =
 ### Feature Added
 * Open Usercentrics Settings via click on elements with ID #sv_tracking_manager_extended_usercentrics_open_settings
+* Hubspot Meetings Support
 
 ### Feature Removed
 * Open Usercentrics Settings via Shortcode

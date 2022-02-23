@@ -73,7 +73,7 @@
 
 			$this->get_script('sdp_block_only')
 				->set_deps(array('jquery'))
-				->set_path('lib/frontend/js/sdp_block_only.js')
+				->set_path('lib/js/frontend/sdp_block_only.js')
 				->set_type('js')
 				->set_is_enqueued()
 				->set_localized($services);
