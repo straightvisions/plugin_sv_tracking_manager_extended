@@ -33,7 +33,8 @@
 
 				$this->get_script('conversion_tracking')
 					->set_path('https://fat.financeads.net/fpc.js')
-					->set_type('js');
+					->set_type('js')
+					->set_deps(array($this->get_script( 'default' )->get_handle()));;
 			}
 			
 			return $this;
@@ -63,7 +64,7 @@
 		public function shortcode($atts, $content = null){
 			$atts = shortcode_atts(
 				array(
-					'order_id'          => md5(time()),
+					'order_id'          => apply_filters($this->get_prefix('order_id'), md5(time())), // sv_tracking_manager_extended_finance_ads_order_id
 					'program_id'		=> '',
 					'category'			=> 'sale'
 				),
@@ -74,6 +75,9 @@
 			if(strlen($atts['program_id']) > 0) {
 				$this->get_script('default')->set_localized($atts);
 			}
+
+			// sv_tracking_manager_extended_finance_ads_thankyou_loaded
+			do_action($this->get_prefix('thankyou_loaded'), $this);
 
 			return '';
 		}
