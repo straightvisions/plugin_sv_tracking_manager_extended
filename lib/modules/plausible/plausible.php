@@ -9,14 +9,23 @@
 		public function init() {
 			$this->set_section_title( __( 'Plausible', 'sv_tracking_manager_extended' ) )
 				->set_section_desc( __( 'Extended', 'sv_tracking_manager_extended' ) )
+				->set_section_template_path( $this->get_path( 'lib/backend/tpl/settings.php' ) )
 				->load_settings()
+				->register_scripts()
+				->events()
 				->get_root()->add_section( $this );
 
 			add_action('wp', array($this, 'bypass_usercentrics'));
 
 			add_action('init', array($this, 'local_cache'), 999);
 		}
-		
+		protected function register_scripts(): plausible {
+			$this->get_script('events')
+				->set_path('lib/frontend/js/events.js')
+				->set_type('js');
+
+			return $this;
+		}
 		protected function load_settings(): plausible{
 			$this->get_setting( 'local_cache' )
 				->set_title( __( 'Activate Local Proxy', 'sv_tracking_manager_extended' ) )
@@ -27,7 +36,74 @@
 				->set_title( __( 'Bypass Usercentrics', 'sv_tracking_manager_extended' ) )
 				->set_description( __( 'Plausible will not wait for permission by Usercentrics', 'sv_tracking_manager_extended' ) )
 				->load_type( 'checkbox' );
+
+			// Events Groups
+			$this->get_setting('custom_events')
+				->set_title(__('Custom Events', 'sv_tracking_manager'))
+				->load_type('group');
+
+			$this->get_setting('custom_events')->run_type()->add_child()
+				->set_ID('entry_label')
+				->set_title(__('Entry Label', 'sv_tracking_manager'))
+				->set_description(__('This Label will be used as Entry Title for this Settings Group.', 'sv_tracking_manager'))
+				->load_type('text')
+				->set_placeholder('Entry #...');
+
+			$this->get_setting('custom_events')->run_type()->add_child()
+				->set_ID('event')
+				->set_title(__('Event Trigger', 'sv_tracking_manager'))
+				->set_description(__('Selected trigger will be monitored for event action, see https://www.w3schools.com/jquery/jquery_events.asp', 'sv_tracking_manager'))
+				->load_type('text')
+				->set_placeholder('click');
+
+			$this->get_setting('custom_events')->run_type()->add_child()
+				->set_ID('element')
+				->set_title(__('DOM Element', 'sv_tracking_manager'))
+				->set_description(__('DOM Selector (e.g. .contact_form, #submit)', 'sv_tracking_manager'))
+				->load_type('text')
+				->set_placeholder('html')
+				->set_default_value('html');
+
+			$this->get_setting('custom_events')->run_type()->add_child()
+				->set_ID('event_goal')
+				->set_title(__('Event Goal', 'sv_tracking_manager'))
+				->set_description(__('Must be an exact Match to goals defined in Plausible.', 'sv_tracking_manager'))
+				->load_type('text');
 				
+			return $this;
+		}
+		public function cleanup(&$value, $key){
+			$value = str_replace('"', "'", $value);
+		}
+		public function events(): plausible{
+			$events = $this->get_setting('custom_events')->get_data();
+			$events_js = array();
+
+			if ($events && is_array($events) && count($events) > 0) {
+				$this->get_script('events')->set_is_enqueued();
+
+				foreach ( $events as $event_id => $event ) {
+					array_walk($event, array($this, 'cleanup'));
+
+					// event empty
+					if (strlen($event['event']) === 0) {
+						continue;
+					}
+
+					$events_js[] = array(
+						'event'           => $event['event'],
+						'element'         => $event['element'],
+						'goal'      	  => $event['event_goal'],
+					);
+				}
+
+				if(count($events_js) > 0) {
+					$this->get_script( 'events' )
+						->set_is_enqueued()
+						->set_localized( $events_js );
+				}
+			}
+
 			return $this;
 		}
 		public function bypass_usercentrics(): plausible{

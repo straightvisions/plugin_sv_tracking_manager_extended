@@ -4,8 +4,8 @@ Donate link: https://straightvisions.com
 Tags: tracking, analytics, gdpr, dsgvo, usercentrics, cookie banner, bing, facebook, google analytics, google optimize, hotjar, linkedin, mouseflow, yahoo
 Requires PHP: 7.3
 Requires at least: 5.3.2
-Tested up to: 5.9.0
-Stable tag: 1.8.02
+Tested up to: 5.9.3
+Stable tag: 1.8.04
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -34,6 +34,10 @@ This plugin is build to work out-of-the-box. Installation is quite simple.
 3. You are using a caching plugin? Don't forget to flush caches now.
 
 == Changelog ==
+
+= 1.8.04 =
+
+* Add Support for Plausible Custom Events
 
 = 1.8.02 =
 
@@ -67,18 +71,7 @@ Initial Release
 
 == Upgrade Notice ==
 
-= 1.8.02 =
-
-### Security Fix
-
-* Third Party Vendor Library
-
-### Feature Added
-* Open Usercentrics Settings via click on elements with ID #sv_tracking_manager_extended_usercentrics_open_settings
-* Hubspot Meetings Support
-
-### Feature Removed
-* Open Usercentrics Settings via Shortcode
+Add Support for Plausible Custom Events
 
 == Missing a feature? ==
 
