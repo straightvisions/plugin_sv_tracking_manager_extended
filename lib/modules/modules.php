@@ -6,6 +6,7 @@
 			$this->load_module('freemius');
 
 			$this->load_module('finance_ads');
+			$this->load_module('google_customer_reviews');
 			$this->load_module('google_optimize');
 			$this->load_module('hubspot');
 			$this->load_module('outbrain');

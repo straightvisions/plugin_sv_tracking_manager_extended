@@ -39,6 +39,7 @@ This plugin is build to work out-of-the-box. Installation is quite simple.
 ### Various
 
 * Core Update
+* Feat - Add - Google Customer Reviews
 
 = 1.8.04 =
 
@@ -77,6 +78,7 @@ Initial Release
 == Upgrade Notice ==
 
 Core Update
+Feat - Add - Google Customer Reviews
 
 == Missing a feature? ==
 
