@@ -85,7 +85,7 @@ Feat - Add - Google Customer Reviews
 Please use the plugin support forum here on WordPress.org. We will add your wish - if achievable - on our todo list. Please note that we can not give any time estimate for that list or any feature request.
 
 = Paid Services =
-Nevertheless, feel free to hire our <a href="https://straightvisions.com">full stack webdeveloper</a> team if you have any of the following needs:
+Nevertheless, feel free to contact our [WordPress Agency](https://straightvisions.com) if you have any of the following needs:
 
 * get a customization
 * get a feature rapidly / on time
