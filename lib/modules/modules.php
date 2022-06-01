@@ -10,6 +10,7 @@
 			$this->load_module('google_optimize');
 			$this->load_module('hubspot');
 			$this->load_module('outbrain');
+			$this->load_module('pingdom');
 			$this->load_module('plausible');
 			$this->load_module('product_recommendation_quiz');
 			$this->load_module('usercentrics');
