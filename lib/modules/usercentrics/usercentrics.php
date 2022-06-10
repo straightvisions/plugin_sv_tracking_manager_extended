@@ -66,10 +66,20 @@
 				return $this;
 			}
 
+			if(!$this->get_instance('sv_tracking_manager')->get_module('usercentrics')->is_activate_shield()){
+				return $this;
+			}
+
 			$services	= array();
 			foreach($this->get_setting( 'sdp_block_only' )->get_data() as $service){
 				$services[]		= $service['id'];
 			}
+
+			add_filter( 'rocket_delay_js_exclusions', function ( $excluded_files = array() ) {
+				$excluded_files[] = '/sdp_block_only.js';
+
+				return $excluded_files;
+			} );
 
 			$this->get_script('sdp_block_only')
 				->set_deps(array('jquery'))
