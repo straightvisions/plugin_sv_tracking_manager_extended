@@ -17,7 +17,7 @@
 		protected function load_settings(): typeform {
 			$this->get_setting('activate')
 				 ->set_title( __( 'Activate', 'sv_tracking_manager_extended' ) )
-				 ->set_description('Enable')
+				 ->set_description('Insert forms via shortcode: [sv_tracking_manager_extended_typeform id=""]')
 				 ->load_type( 'checkbox' );
 
 			return $this;
