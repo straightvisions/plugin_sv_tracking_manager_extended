@@ -13,6 +13,7 @@
 			$this->load_module('pingdom');
 			$this->load_module('plausible');
 			$this->load_module('product_recommendation_quiz');
+			$this->load_module('typeform');
 			$this->load_module('usercentrics');
 		}
 

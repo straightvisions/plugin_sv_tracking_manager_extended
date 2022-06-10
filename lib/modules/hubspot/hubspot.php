@@ -2,10 +2,6 @@
 	namespace sv_tracking_manager_extended;
 	
 	class hubspot extends modules {
-		public function __construct() {
-		
-		}
-		
 		public function init() {
 			$this->set_section_title( __( 'Hubspot', 'sv_tracking_manager_extended' ) )
 				->set_section_desc( __( 'Extended', 'sv_tracking_manager_extended' ) )
