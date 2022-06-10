@@ -17,7 +17,7 @@
 		protected function load_settings(): typeform {
 			$this->get_setting('activate')
 				 ->set_title( __( 'Activate', 'sv_tracking_manager_extended' ) )
-				 ->set_description('Insert forms via shortcode: [sv_tracking_manager_extended_typeform id=""]')
+				 ->set_description('Insert forms via shortcode: [sv_tracking_manager_extended_typeform id="" width="" height=""]')
 				 ->load_type( 'checkbox' );
 
 			return $this;
@@ -54,6 +54,8 @@
 			$settings					= shortcode_atts(
 				array(
 					'id'				=> '',
+					'width'				=> '100%',
+					'height'			=> '700px'
 				),
 				$settings,
 				$this->get_module_name()
@@ -66,6 +68,6 @@
 			$this->register_scripts()->add_service();
 			$this->get_script('default')->set_is_enqueued();
 
-			return '<div data-tf-widget="'.$settings['id'].'" data-tf-inline-on-mobile data-tf-medium="snippet"></div>';
+			return '<div style="width:'.$settings['width'].';height:'.$settings['height'].';max-width:100%;" data-tf-widget="'.$settings['id'].'" data-tf-inline-on-mobile data-tf-medium="snippet"></div>';
 		}
 	}
