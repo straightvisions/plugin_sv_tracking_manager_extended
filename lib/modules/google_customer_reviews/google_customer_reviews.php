@@ -53,6 +53,12 @@
 			$wpml_lang								= apply_filters( 'wpml_current_language', null );
 			$lang									= (strlen($wpml_lang) > 0) ? $wpml_lang : get_locale();
 
+			$this->get_script('default')
+				->set_path('https://apis.google.com/js/platform.js?onload=renderOptIn')
+				->set_type('js')
+				->set_deps(array($this->get_script('options')->get_handle()))
+				->set_is_enqueued();
+
 			$this->get_script('options')
 				->set_path('lib/frontend/js/options.js')
 				->set_type('js')
@@ -66,12 +72,6 @@
 					'opt_in_style'					=> $this->get_setting('opt_in_style')->get_data(),
 					'lang'							=> $lang
 				))
-				->set_is_enqueued();
-
-			$this->get_script('default')
-				->set_path('https://apis.google.com/js/platform.js?onload=renderOptIn')
-				->set_type('js')
-				->set_deps(array($this->get_script('options')->get_handle()))
 				->set_is_enqueued();
 
 
