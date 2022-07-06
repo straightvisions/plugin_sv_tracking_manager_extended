@@ -68,6 +68,6 @@
 			$this->register_scripts()->add_service();
 			$this->get_script('default')->set_is_enqueued();
 
-			return '<div style="width:'.$settings['width'].';height:'.$settings['height'].';max-width:100%;" data-tf-widget="'.$settings['id'].'" data-tf-inline-on-mobile data-tf-medium="snippet"></div>';
+			return '<div style="width:'.$settings['width'].';height:'.$settings['height'].';max-width:100%;" data-tf-widget="'.$settings['id'].'" data-tf-inline-on-mobile data-tf-medium="snippet" data-tf-disable-auto-focus></div>';
 		}
 	}
