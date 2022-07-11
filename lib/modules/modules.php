@@ -15,6 +15,7 @@
 			$this->load_module('product_recommendation_quiz');
 			$this->load_module('typeform');
 			$this->load_module('usercentrics');
+			$this->load_module('screentime');
 		}
 
 		public function add_service(): modules{
