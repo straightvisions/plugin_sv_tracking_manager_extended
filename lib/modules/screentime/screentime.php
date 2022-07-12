@@ -34,13 +34,15 @@
                  ->set_title( __( 'Report Interval', 'sv_tracking_manager_extended' ) )
                  ->set_description('Report Interval in seconds, e.g. 5')
                  ->set_placeholder( __('Report Interval in seconds, e.g. 5', 'sv_tracking_manager_extended' ) )
-                 ->load_type( 'number' );
+				 ->set_default_value(10)
+				 ->load_type( 'number' );
 
             $this->get_setting('percent_on_screen')
                  ->set_title( __( 'Percent on Screen', 'sv_tracking_manager_extended' ) )
                  ->set_description('Percent of screen that must be on screen to be counted as active, e.g. 10%')
                  ->set_placeholder( __('Percent on Screen, e.g. 50% or 100%', 'sv_tracking_manager_extended' ) )
-                 ->load_type( 'text' );
+                 ->set_default_value('50%')
+				 ->load_type( 'text' );
 
             $this->get_setting('tracked_elements')
                 ->set_title(__('Tracked Elements', 'sv_tracking_manager'))
