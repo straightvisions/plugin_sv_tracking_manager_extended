@@ -32,7 +32,7 @@
                 ->load_type('group');
 
             $this->get_setting('tracked_elements')->run_type()->add_child()
-				->set_ID('label')
+				->set_ID('name')
                 ->set_description(__('This label will be used as Text Label in Google Analytics', 'sv_tracking_manager'))
 				->load_type('text')
 				->set_placeholder('Label ...');
@@ -64,14 +64,24 @@
                 if($tracked_elements && is_array($tracked_elements) && count($tracked_elements) > 0){
                     $tracked_elements_js = array_merge($tracked_elements_js, $tracked_elements);
                     
-                        $this->get_script( 'screentime' )
-                            ->set_is_enqueued()
-                            ->set_localized( $tracked_elements_js );
-                    // foreach($tracked_elements as $element){
-                    //     $tracked_elements_js[] = $element;
-                    // }
+                    $tracked_elements_js = $this->clean_tracked_elements($tracked_elements_js);
+
+                    $this->get_script( 'screentime' )
+                        ->set_is_enqueued()
+                        ->set_localized( $tracked_elements_js );
                 }
             }
             return $this;
+        }
+        public function clean_tracked_elements(array $tracked_elements_js): array {
+            $tracked_elements_js = array_map(function($element){
+                if( !isset($element['name']) || !isset($element['selector'])
+                    || empty($element['name'])|| empty($element['selector']) ) {
+                    return null;
+                }
+                return $element;
+            }, $tracked_elements_js);
+            $tracked_elements_js = array_filter($tracked_elements_js);
+            return $tracked_elements_js;
         }
     }
