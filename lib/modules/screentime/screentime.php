@@ -11,8 +11,6 @@
 				 ->load_settings()
                  ->load_tracked_elements()
 				 ->get_root()->add_section( $this );
-
-			add_action('init', array($this, 'load'));
 		}
         public function register_scripts(): screentime {
             $this->get_script('screentime')
@@ -32,7 +30,7 @@
                 ->load_type('group');
 
             $this->get_setting('tracked_elements')->run_type()->add_child()
-				->set_ID('name')
+				->set_ID('entry_label')
                 ->set_description(__('This label will be used as Text Label in Google Analytics', 'sv_tracking_manager'))
 				->load_type('text')
 				->set_placeholder('Label ...');
@@ -75,10 +73,14 @@
         }
         public function clean_tracked_elements(array $tracked_elements_js): array {
             $tracked_elements_js = array_map(function($element){
-                if( !isset($element['name']) || !isset($element['selector'])
-                    || empty($element['name'])|| empty($element['selector']) ) {
+                if( !isset($element['entry_label']) || !isset($element['selector'])
+                    || empty($element['entry_label']) || empty($element['selector']) ) {
                     return null;
                 }
+
+				$element['name']	= $element['entry_label'];
+				unset($element['entry_label']);
+
                 return $element;
             }, $tracked_elements_js);
             $tracked_elements_js = array_filter($tracked_elements_js);
