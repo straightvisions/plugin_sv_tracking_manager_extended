@@ -5,7 +5,7 @@ Tags: tracking, analytics, gdpr, dsgvo, usercentrics, cookie banner, bing, faceb
 Requires PHP: 7.3
 Requires at least: 5.3.2
 Tested up to: 6.0.0
-Stable tag: 1.9.00
+Stable tag: 2.0.00
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -34,6 +34,12 @@ This plugin is build to work out-of-the-box. Installation is quite simple.
 3. You are using a caching plugin? Don't forget to flush caches now.
 
 == Changelog ==
+
+= 2.0.00 =
+### Various
+
+* Core Update
+* Feat - Add - Klaviyo Support
 
 = 1.9.00 =
 ### Various
@@ -76,9 +82,7 @@ This plugin is build to work out-of-the-box. Installation is quite simple.
 Initial Release
 
 == Upgrade Notice ==
-
-Core Update
-Feat - Add - Google Customer Reviews
+Core Update, Klaviyo Support
 
 == Missing a feature? ==
 

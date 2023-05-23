@@ -16,6 +16,7 @@
 			$this->load_module('typeform');
 			$this->load_module('usercentrics');
 			$this->load_module('screentime');
+			$this->load_module('klaviyo');
 		}
 
 		public function add_service(): modules{
