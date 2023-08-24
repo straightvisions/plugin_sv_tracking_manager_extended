@@ -3,8 +3,6 @@
 	
 	class modules extends init {
 		public function init() {
-			$this->load_module('freemius');
-
 			$this->load_module('finance_ads');
 			$this->load_module('google_customer_reviews');
 			$this->load_module('google_optimize');
