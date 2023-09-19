@@ -2,12 +2,8 @@
 	namespace sv_tracking_manager_extended;
 
 	class product_recommendation_quiz extends modules {
-		public function __construct() {
-
-		}
-
 		public function init() {
-			$this->set_section_title( __( 'Product Recommendation Quiz', 'sv_ogaenics_custom' ) )
+			$this->set_section_title( __( 'Product Recommendation Quiz', 'sv_tracking_manager_extended' ) )
 				->set_section_type( 'settings' )
 				->load_settings()
 				->get_root()->add_section( $this );
@@ -17,7 +13,7 @@
 
 		protected function load_settings(): product_recommendation_quiz{
 			$this->get_setting( 'usercentrics_support' )
-				->set_title( __( 'Enable Javascript Loading Opt In via Usercentrics', 'sv_ogaenics_custom' ) )
+				->set_title( __( 'Enable Javascript Loading Opt In via Usercentrics', 'sv_tracking_manager_extended' ) )
 				->load_type( 'checkbox' );
 
 			return $this;
